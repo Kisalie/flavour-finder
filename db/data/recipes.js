@@ -29,7 +29,7 @@ export default [
   },
   {
     title: 'Caprese Salad',
-    image: 'caprese_salad.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794140/flavour-finder/caprese-salad_azhifp.jpg',
     cuisine: 'Italian',
     ingredients: [
       { ingredient: 'Tomatoes', amount: '4 medium' },
@@ -54,7 +54,7 @@ export default [
   },
   {
     title: 'Chocolate Avocado Pudding',
-    image: 'choco_avo_pudding.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794142/flavour-finder/chocolate-avocado-pudding_dawnva.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Avocado', amount: '2 medium' },
@@ -75,7 +75,7 @@ export default [
   },
   {
     title: 'Guacamole',
-    image: 'guacamole.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794153/flavour-finder/gucamole_msiwiy.jpg',
     cuisine: 'Mexican',
     ingredients: [
       { ingredient: 'Avocado', amount: '3 medium' },
@@ -92,7 +92,7 @@ export default [
   },
   {
     title: 'Spicy Chickpea Curry',
-    image: 'chickpea_curry.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794159/flavour-finder/spicy-chickpea-curry_bgbbkp.jpg',
     cuisine: 'Indian',
     ingredients: [
       { ingredient: 'Chickpeas', amount: '1 can' },
@@ -114,7 +114,7 @@ export default [
   },
   {
     title: 'Grilled Chicken Caesar Salad',
-    image: 'chicken_caesar.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794151/flavour-finder/grilled-chicken-caesar-salad_qi7ti0.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Chicken breast', amount: '2 pieces' },
@@ -129,7 +129,7 @@ export default [
   },
   {
     title: 'Stir-fry Tofu and Vegetables',
-    image: 'tofu_stir_fry.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794161/flavour-finder/stir-fry-tofu-and-vegetables_xtgyiv.jpg',
     cuisine: 'Asian',
     ingredients: [
       { ingredient: 'Tofu', amount: '300 grams' },
@@ -149,7 +149,7 @@ export default [
   },
   {
     title: 'Fish Tacos',
-    image: 'fish_tacos.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794147/flavour-finder/fish-tacos_vtfjre.jpg',
     cuisine: 'Mexican',
     ingredients: [
       { ingredient: 'Fish fillets', amount: '2 pieces' },
@@ -165,7 +165,7 @@ export default [
   },
   {
     title: 'Spaghetti Carbonara',
-    image: 'carbonara.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794157/flavour-finder/spaghetti-carbonara_atxqrp.jpg',
     cuisine: 'Italian',
     ingredients: [
       { ingredient: 'Spaghetti', amount: '300 grams' },
@@ -180,7 +180,7 @@ export default [
   },
   {
     title: 'Apple Crumble',
-    image: 'apple_crumble.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794140/flavour-finder/apple-crumble_skoir4.jpg',
     cuisine: 'British',
     ingredients: [
       { ingredient: 'Apples', amount: '4' },
@@ -195,7 +195,7 @@ export default [
   },
   {
     title: 'Churros',
-    image: 'churros.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794144/flavour-finder/churros_dvurqe.jpg',
     cuisine: 'Spanish',
     ingredients: [
       { ingredient: 'Flour', amount: '1 cup' },
@@ -210,7 +210,7 @@ export default [
   },
   {
     title: 'Spicy Mango Salsa',
-    image: 'spicy_mango_salsa.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794160/flavour-finder/spicy-mango-salsa_c2tib0.jpg',
     cuisine: 'Mexican',
     ingredients: [
       { ingredient: 'Mango', amount: '2 medium' },
@@ -235,7 +235,7 @@ export default [
   },
   {
     title: 'Cucumber Gazpacho',
-    image: 'cucumber_gazpacho.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794146/flavour-finder/cucumber-gazpacho_kaqpve.jpg',
     cuisine: 'Spanish',
     ingredients: [
       { ingredient: 'Cucumber', amount: '2 large' },
@@ -259,7 +259,7 @@ export default [
   },
   {
     title: 'Beef Stir-Fry',
-    image: 'beef_stir_fry.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794137/flavour-finder/beef-stir-fry_jpqpzm.jpg',
     cuisine: 'Asian',
     ingredients: [
       { ingredient: 'Beef strips', amount: '400 grams' },
@@ -285,7 +285,7 @@ export default [
   },
   {
     title: 'Chicken Alfredo Pasta',
-    image: 'chicken_alfredo_pasta.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794137/flavour-finder/chicken-alfredo-pasta_oqhedj.jpg',
     cuisine: 'Italian',
     ingredients: [
       { ingredient: 'Pasta', amount: '400 grams' },
@@ -314,7 +314,7 @@ export default [
   },
   {
     title: 'Garlic Bread',
-    image: 'garlic_bread.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794150/flavour-finder/garlic-bread_hz3m9v.jpg',
     cuisine: 'Italian',
     ingredients: [
       { ingredient: 'Baguette', amount: '1' },
@@ -339,7 +339,7 @@ export default [
   },
   {
     title: 'Roasted Sweet Potatoes',
-    image: 'roasted_sweet_potatoes.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794154/flavour-finder/roasted-sweet-potatoes_abxrdx.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Sweet potatoes', amount: '4 medium' },
@@ -362,7 +362,7 @@ export default [
   },
   {
     title: 'Chocolate Brownies',
-    image: 'chocolate_brownies.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794143/flavour-finder/chocolate-brownies_pvog6l.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Butter', amount: '1/2 cup' },
@@ -391,7 +391,7 @@ export default [
   },
   {
     title: 'Fruit Salad',
-    image: 'fruit_salad.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794148/flavour-finder/fruit-salad_bn2l2q.jpg',
     cuisine: 'International',
     ingredients: [
       { ingredient: 'Apple', amount: '1' },
@@ -415,7 +415,7 @@ export default [
   },
   {
     title: 'Shrimp Cocktail',
-    image: 'shrimp_cocktail.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794155/flavour-finder/shrimp-cocktail_fkvcme.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Shrimp', amount: '1 pound' },
@@ -434,7 +434,7 @@ export default [
   },
   {
     title: 'Stuffed Mushrooms',
-    image: 'stuffed_mushrooms.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794162/flavour-finder/stuffed-mushrooms_qbmykg.jpg',
     cuisine: 'Italian',
     ingredients: [
       { ingredient: 'Mushroom caps', amount: '20' },
