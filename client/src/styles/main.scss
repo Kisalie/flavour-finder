@@ -16,6 +16,8 @@ $primary-text: #F7F3E8;
 @import 'partials/browseRecipes.scss';
 >>>>>>> dc79d1b (Merged everything and added sushi image)
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,5 +26,5 @@ $primary-text: #F7F3E8;
 body {
   background-color: $background-dark;
   color: $text-light;
-  font-family: Helvetica;
+  font-family: 'Quicksand';
 }
