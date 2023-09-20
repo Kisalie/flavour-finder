@@ -92,6 +92,7 @@ export const deleteRecipe = async (req, res) => {
     return res.status(404).json({ error: error.message })
   }
 }
+
 export const getRecipesByType = async (req, res) => {
   try {
     const { type } = req.params
