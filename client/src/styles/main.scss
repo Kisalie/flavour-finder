@@ -84,9 +84,12 @@ h1 {
 =======
 main {
   padding-top: 65px;
+  padding-bottom: 65px;
+  min-height: 90vh;
 
   @media (min-width: $tablet-width) {
     padding-top: 76.19px;
+    padding-bottom: 76.19px;
   }
 }
 
