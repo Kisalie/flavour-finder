@@ -25,11 +25,11 @@ router.route('/recipes/type/:type')
 
 router.route('/recipes/cuisine/:cuisine')
   .get(getRecipesByCuisine)
-  
+
 // ! Users
 router.route('/register')
   .post(registerUser)
-  
+
 router.route('/login')
   .post(loginUser)
 
@@ -39,6 +39,5 @@ router.route('/blogs')
 
 router.route('/blogs/:id')
   .get(getSingleBlog)
-
 
 export default router
