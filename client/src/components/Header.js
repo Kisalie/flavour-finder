@@ -170,7 +170,7 @@ export default function Header() {
 >>>>>>> 64ed2c0 (Added dropdown sliding animation and adjust width of side menu links)
 =======
       {!isLoggedIn && (
-        <AccountModal isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />
+        <AccountModal setUserId={setUserId} isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />
       )}
       {isLoggedIn && <UserDropdown isVisible={isUserDropdownVisible} logOutuser={logOutuser} />}
 >>>>>>> 9f5e371 (Fixed merge)
