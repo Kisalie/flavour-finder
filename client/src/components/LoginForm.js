@@ -46,10 +46,13 @@ export default function LoginForm(props) {
 >>>>>>> 36d844d (Updated register/login modal to fix some issues)
 
           setTimeout(() => {
-            props.setIsLoggedIn(true)
             props.closeModal()
-            setShowSuccess(false)
-          }, 1500)
+            props.setIsLoggedIn(true)
+            
+            setTimeout(() => {
+              setShowSuccess(false)
+            }, 250)
+          }, 1600)
         }, 1000)
       } catch (error) {
         console.log(error)
