@@ -418,11 +418,11 @@ export default function RecipeForm() {
             Image
           </label>
           <div className='control'>
-            {recipeInformation.image ? (
+            {/* {recipeInformation.image ? (
               <img src={recipeInformation.image} alt='Uploaded preview' style={{ maxWidth: '100%' }}></img>
-            ) : (
-              <input type='file' className='input' name='image' onChange={handleUpload} />
-            )}
+            ) : ( */}
+            <input type='file' className='input' name='image' onChange={handleUpload} />
+            {/* )} */}
           </div>
         </div>
 
