@@ -17,6 +17,7 @@ app.use((req, res, next) => {
   next()
 })
 
+// router
 app.use('/api', router)
 
 // Deployment - serve static files in production
@@ -30,14 +31,14 @@ app.use((req, res) => {
 })
 
 const startServer = async () => {
-    try {
-        await mongoose.connect(process.env.CONNECTION_STRING);
-        console.log(`✅ Database connection established`);
-        app.listen(process.env.PORT, () => console.log(`🚀 Server listening on port ${process.env.PORT}`));
-    } catch (error) {
-        console.log(`⛔️ Something went wrong starting the server!`);
-        console.log(error);
-    }
+  try {
+    await mongoose.connect(process.env.CONNECTION_STRING);
+    console.log(`✅ Database connection established`);
+    app.listen(process.env.PORT, () => console.log(`🚀 Server listening on port ${process.env.PORT}`));
+  } catch (error) {
+    console.log(`⛔️ Something went wrong starting the server!`);
+    console.log(error);
+  }
 };
 
 startServer();
