@@ -7,7 +7,7 @@ import Featured from './FeaturedRecipes'
 <<<<<<< HEAD
 export default function Home() {
   return (
-    <main>
+    <main className='home-page'>
       <CarouselWrapper />
       <Blogs />
       <Featured />
