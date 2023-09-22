@@ -39,9 +39,10 @@ export default function Header() {
   }, [animation])
 
   const handleClick = () => {
+    setUserDropdownVisible(false)
     setAnimation('shrinking')
     if (isModalVisible) {
-      setTimeout(() => setOpenSideMenu(!openSideMenu), 500)
+      setTimeout(() => setOpenSideMenu(!openSideMenu), 250)
       setModalVisible(false)
     } else {
       setOpenSideMenu(!openSideMenu)
@@ -49,16 +50,21 @@ export default function Header() {
   }
 
   const toggleModal = () => {
-    if (isLoggedIn) {
-      setUserDropdownVisible(!isUserDropdownVisible)
-      return
-    }
+    // if (isLoggedIn) {
+    //   setUserDropdownVisible(!isUserDropdownVisible)
+    //   return
+    // }
     if (isMenuOpen) {
       setOpenSideMenu(false)
       setTimeout(() => setModalVisible(!isModalVisible), 400)
+      setTimeout(() => setUserDropdownVisible(!isUserDropdownVisible), 400)
       setAnimation('shrinking')
     } else {
-      setModalVisible(!isModalVisible)
+      if (isLoggedIn) {
+        setUserDropdownVisible(!isUserDropdownVisible)
+      } else {
+        setModalVisible(!isModalVisible)
+      }
     }
   }
 
@@ -172,8 +178,12 @@ export default function Header() {
       {!isLoggedIn && (
         <AccountModal setUserId={setUserId} isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />
       )}
+<<<<<<< HEAD
       {isLoggedIn && <UserDropdown isVisible={isUserDropdownVisible} logOutuser={logOutuser} />}
 >>>>>>> 9f5e371 (Fixed merge)
+=======
+      {isLoggedIn && <UserDropdown isVisible={isUserDropdownVisible} logOutuser={logOutuser} setUserDropdownVisible={setUserDropdownVisible} />}
+>>>>>>> 67dc221 (Prevented side menu and dropdown/account modal from being opened at the same time)
     </>
   )
 }
