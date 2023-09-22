@@ -294,7 +294,7 @@ export default function RecipeForm() {
 
             reader.onloadend = async () => {
               const blob = new Blob([new Uint8Array(reader.result)], { type: file.type })
-
+              // https://somelink --> Form Submit --> check ImageURL with axios.get() --> (404 -->  200)
 
               // Send the blob to the CDN (pseudo-code as you haven't provided details)
               // await axios.post('https://api.cloudinary.com/v1_1/{{cloud_name}}/:resource_type/upload', )
