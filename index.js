@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 })
 
 // router
+// router
 app.use('/api', router)
 
 // Deployment - serve static files in production
