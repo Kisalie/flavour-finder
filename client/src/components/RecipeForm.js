@@ -13,12 +13,18 @@ import { useParams } from 'react-router-dom'
 
 const generateUniqueId = () => uuidv4()
 
+<<<<<<< HEAD
 export default function RecipeForm({ formId }) {
   const { addedBy } = useParams() // Extract addedBy from the route parameters
 
 <<<<<<< HEAD
 =======
+=======
+export default function RecipeForm() {
+  const { addedBy, id } = useParams() // Extract addedBy from the route parameters
+>>>>>>> e4c8105 (Finished wiring up the update form.)
   const navigate = useNavigate()
+  // http://localhost:3000/user/650c24697f47fd642512ff0c/650c2cfdde13d1a3da109f17 - Update example
 
 >>>>>>> 0b5c219 (Create recipe form now works.)
   // State:
@@ -26,7 +32,13 @@ export default function RecipeForm({ formId }) {
   const [methods, setMethods] = useState([{ id: generateUniqueId(), value: '' }])
   const [isFetching, setIsFetching] = useState(false)
   const [recipeInformation, setRecipeInformation] = useState({
+<<<<<<< HEAD
     'name': '',
+=======
+    'cuisine': '',
+    'title': '',
+    'type': '',
+>>>>>>> e4c8105 (Finished wiring up the update form.)
     'image': '',
     'dishType': '',
     'hours': '',
@@ -40,14 +52,54 @@ export default function RecipeForm({ formId }) {
     // addedBy: userId,
   })
 
+  console.log(ingredients)
+  console.log(methods)
+  console.log(recipeInformation)
+
 
   useEffect(() => {
-    if (!formId) return
+    // Don't fetch any data if the recipe id doesn't exist, i.e. we're creating a recipe:
+    if (!id) return
 
-    // 1. Async function
-    // 2. Get data --> { wrangle the data and set each bit of state. RecipeName, Hours, Minutes}
-    // 3. setIngredients() -> setMethods() --> setRecipeInformation()
-    // 4. setIsFetching(true)
+    const getAndUpdateState = async () => {
+      setIsFetching(false)
+      //  Get data --> { wrangle the data and set each bit of state. RecipeName, Hours, Minutes}
+      const { data } = await axios.get(`/api/recipes/${id}`)
+
+      // 1. Ingredients:
+      setIngredients(data.ingredients.map(ingredient => {
+        ingredient.id = generateUniqueId()
+        return ingredient
+      }))
+
+      // 2. Methods:
+      setMethods(data.method.map(method => {
+        return {
+          value: method,
+          id: generateUniqueId(),
+        }
+
+      }))
+
+      // 3. RecipeInformation:
+      setRecipeInformation({
+        'cuisine': data.cuisine,
+        'title': data.title,
+        'type': data.type,
+        'image': data.image,
+        'hours': data.cookingTime.hours,
+        'minutes': data.cookingTime.minutes,
+        'serves': data.serves,
+        isVegan: data.isVegan || false,
+        isVegetarian: data.isVegetarian || false,
+        isPescatarian: data.isPescatarian || false,
+        isGlutenFree: data.isGlutenFree || false,
+      })
+
+      setIsFetching(true)
+    }
+
+    getAndUpdateState()
 
   }, [])
 
@@ -84,10 +136,6 @@ export default function RecipeForm({ formId }) {
     })
   }
 
-
-  // if (formId && !setIsFetching) return <></>
-  // Else render the form and we have the data in the form:
-
   const { register, handleSubmit, formState: { errors }, control } = useForm({
     defaultValues: {
       cuisine: '',
@@ -119,7 +167,7 @@ export default function RecipeForm({ formId }) {
 
   // Ingredients
   const addIngredient = () => {
-    setIngredients([...ingredients, { id: generateUniqueId(), name: '', amount: '' }])
+    setIngredients([...ingredients, { id: generateUniqueId(), ingredient: '', amount: '' }])
   }
 
   const removeIngredient = (ingredientId) => {
@@ -131,7 +179,7 @@ export default function RecipeForm({ formId }) {
 
   const handleIngredientNameChange = (e, index) => {
     const newIngredients = [...ingredients]
-    newIngredients[index].name = e.target.value
+    newIngredients[index].ingredient = e.target.value
     setIngredients(newIngredients)
   }
 
@@ -211,6 +259,9 @@ export default function RecipeForm({ formId }) {
 >>>>>>> 0b5c219 (Create recipe form now works.)
   }
 
+  // if (id || !setIsFetching) return <></>
+  // Else render the form and we have the data in the form:
+
   return (
     <main className='recipe-form-page'>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -222,11 +273,16 @@ export default function RecipeForm({ formId }) {
         />
         {/* {errors.username && <span>Username is required</span>} */}
         {/* <input type='file' accept='image/png, image/jpeg, image/jpg' {...register('image', { required: false })} /> */}
-        <input type='text' placeholder='Image Path' {...register('image', { required: true })}
+        <input type='text' value={recipeInformation.image} placeholder='Image Path' {...register('image', { required: true })}
           onChange={(e) => handleInputChange('image', e.target.value)}
         />
         <select className='dropbtn' {...register('cuisine', { required: true })}
+<<<<<<< HEAD
           onChange={(e) => handleInputChange('cusine', e.target.value)}
+=======
+          value={recipeInformation.cuisine}
+          onChange={(e) => handleInputChange('cuisine', e.target.value)}
+>>>>>>> e4c8105 (Finished wiring up the update form.)
 
         >
           <option value='' disabled>
@@ -261,23 +317,30 @@ export default function RecipeForm({ formId }) {
         </select>
 
         <label>Hours</label>
-        <input type='number' min='0' max='12' {...register('hours', { required: true })} onChange={(e) => handleInputChange('hours', e.target.value)} />
+        <input type='number' min='0' max='12' {...register('hours', { required: true })} onChange={(e) => handleInputChange('hours', e.target.value)}
+          value={recipeInformation.hours} />
         <label>Minutes</label>
-        <input type='number' min='0' max='59' {...register('minutes', { required: true })} onChange={(e) => handleInputChange('minutes', e.target.value)} />
+        <input type='number' min='0' max='59' {...register('minutes', { required: true })} onChange={(e) => handleInputChange('minutes', e.target.value)}
+          value={recipeInformation.minutes} />
 
         <label>Serves</label>
-        <input type='number' min='0' max='12' {...register('serves', { required: true })} onChange={(e) => handleInputChange('serves', e.target.value)} />
+        <input type='number' min='0' max='12' {...register('serves', { required: true })} onChange={(e) => handleInputChange('serves', e.target.value)}
+          value={recipeInformation.serves}
+        />
+
 
         <section className="checkbox-container">
           <label>
             <input type="checkbox"
               checked={recipeInformation.isVegan}
+              value={recipeInformation.isVegan}
               onChange={() => handleDietaryCheckboxChange('vegan')} />
             Vegan
           </label>
 
           <label>
             <input type="checkbox" checked={recipeInformation.isVegetarian}
+              value={recipeInformation.isVegetarian}
               onChange={() => handleDietaryCheckboxChange('vegetarian')} />
             Vegetarian
           </label>
@@ -285,6 +348,7 @@ export default function RecipeForm({ formId }) {
           <label>
             <input type="checkbox"
               checked={recipeInformation.isGlutenFree}
+              value={recipeInformation.isGlutenFree}
               onChange={() => handleDietaryCheckboxChange('glutenFree')} />
             Gluten Free
           </label>
@@ -292,6 +356,7 @@ export default function RecipeForm({ formId }) {
           <label>
             <input type="checkbox"
               checked={recipeInformation.isPescatarian}
+              value={recipeInformation.isPescatarian}
               onChange={() => handleDietaryCheckboxChange('pescatarian')} />
             Pescatarian
           </label>
@@ -305,13 +370,14 @@ export default function RecipeForm({ formId }) {
               <Controller
                 name={`ingredients[${index}].ingredient`}
                 control={control}
-                defaultValue={ingredient.name}
+                defaultValue={ingredient.ingredient}
                 rules={{ required: true }}
                 render={({ field }) => (
                   <input
                     className='ingredient-input'
                     placeholder='New ingredient'
                     {...field}
+                    value={ingredient.ingredient}
                     onChange={e => {
                       field.onChange(e)
                       handleIngredientNameChange(e, index)
@@ -330,6 +396,7 @@ export default function RecipeForm({ formId }) {
                     className='ingredient-input amount-input'
                     placeholder='Amount'
                     {...field}
+                    value={ingredient.amount}
                     onChange={e => {
                       field.onChange(e)
                       handleIngredientAmountChange(e, index)
@@ -363,6 +430,7 @@ export default function RecipeForm({ formId }) {
                     className='methods-input'
                     placeholder='Add Method'
                     {...field}
+                    value={method.value}
                     onChange={e => {
                       field.onChange(e)
                       handleMethodNameChange(e, method.id)
