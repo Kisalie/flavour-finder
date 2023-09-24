@@ -33,8 +33,11 @@ export default function Profile() {
         const { data } = await axios.get(`/api/user/${userId}`)
 =======
         const { data } = await axios.get(`/api/user/${userId}`)
+<<<<<<< HEAD
         // const { data } = await axios.get('/api/user/650c2cfbde13d1a3da109eff')
 >>>>>>> 1a38f65 (Updated dropdown links and added Create Recipe to login)
+=======
+>>>>>>> 0fc5342 (changes)
         setUsersRecipes(data)
         console.log(userId)
         console.log(data)
