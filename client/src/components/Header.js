@@ -7,6 +7,7 @@ import CloseIcon from '../images/close-icon.png'
 import NewLogo from '../images/new-logo.png'
 import ArrowIcon from '../images/arrow-icon.png'
 import AccountModal from './AccountModal'
+import UserDropdown from './UserDropdown'
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -66,6 +67,7 @@ export default function Header() {
     setIsLoggedIn(false)
     setUserId('')
     localStorage.removeItem('token')
+<<<<<<< HEAD
     localStorage.removeItem('userId')
     // window.location.reload()
   }
@@ -87,6 +89,8 @@ export default function Header() {
         </Link>
       </div>
     )
+=======
+>>>>>>> 64ed2c0 (Added dropdown sliding animation and adjust width of side menu links)
   }
 
   return (
@@ -154,9 +158,13 @@ export default function Header() {
         </Link>
       </div>
 
-      {isLoggedIn && isUserDropdownVisible && <UserDropdown />}
 
+<<<<<<< HEAD
       <AccountModal setUserId={setUserId} isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />
+=======
+      {!isLoggedIn && <AccountModal isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />}
+      {isLoggedIn && <UserDropdown isVisible={isUserDropdownVisible} logOutuser={logOutuser} />}
+>>>>>>> 64ed2c0 (Added dropdown sliding animation and adjust width of side menu links)
     </>
   )
 }
