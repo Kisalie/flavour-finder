@@ -31,7 +31,7 @@ export default function App() {
 >>>>>>> 3203e08 (added form)
       </Routes>
       {/* Show Footer on all pages */}
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   )
 }
