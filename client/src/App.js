@@ -6,6 +6,7 @@ import SingleRecipe from './components/SingleRecipe'
 import Blog from './components/Blog'
 import SingleBlog from './components/SingleBlog'
 import Footer from './components/Footer'
+import NotFound from './components/NotFound'
 
 export default function App() {
   return (
@@ -18,7 +19,11 @@ export default function App() {
         <Route path='/recipes' element={<BrowseRecipes />} />
         <Route path='/recipes/:id' element={<SingleRecipe />} />
         <Route path='/blogs' element={<Blog />} />
+<<<<<<< HEAD
         <Route path='/blogs/:id' element={<SingleBlog />} />
+=======
+        <Route path="*" element={<NotFound />} />
+>>>>>>> d9b791f (page not found)
       </Routes>
       {/* Show Footer on all pages */}
       {/* <Footer /> */}
