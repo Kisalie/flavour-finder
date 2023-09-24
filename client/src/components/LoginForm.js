@@ -28,8 +28,10 @@ export default function LoginForm(props) {
 
         console.log(response)
         localStorage.setItem('token', response.data.token)
-        console.log(localStorage.getItem('token'))
-        
+        localStorage.setItem('userId', response.data.userId)
+        props.setUserId(response.data.userId)
+
+
         setTimeout(() => {
 <<<<<<< HEAD
           console.log(response)
@@ -48,7 +50,7 @@ export default function LoginForm(props) {
           setTimeout(() => {
             props.closeModal()
             props.setIsLoggedIn(true)
-            
+
             setTimeout(() => {
               setShowSuccess(false)
             }, 250)
@@ -118,7 +120,7 @@ export default function LoginForm(props) {
             <img id='loading-icon' src={LoadingSpinner} />
           </div>
         ) : showSuccess ? (
-          <div className='status-icon-container'>    
+          <div className='status-icon-container'>
             <Player
               ref={successIconRef}
               id='success-icon'

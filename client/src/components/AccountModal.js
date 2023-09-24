@@ -3,11 +3,15 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export default function AccountModal({ isVisible, closeModal }) {
 =======
 export default function AccountModal({ isVisible, closeModal, setIsLoggedIn }) {
 >>>>>>> 36d844d (Updated register/login modal to fix some issues)
+=======
+export default function AccountModal({ isVisible, closeModal, setIsLoggedIn, setUserId }) {
+>>>>>>> 89507b5 (Fixed authentication for the header, gave it userid properties and also fixed the profile navigation and also added a create new recipe to <Profile> component.)
   const [isLogin, setIsLogin] = useState(false)
 
   const switchToRegister = () => {
@@ -52,7 +56,7 @@ export default function AccountModal({ isVisible, closeModal, setIsLoggedIn }) {
 =======
       <div className='form-container'>
         {isLogin ? (
-          <LoginForm switchToRegister={switchToRegister} closeModal={closeModal} setIsLoggedIn={setIsLoggedIn} />
+          <LoginForm setUserId={setUserId} switchToRegister={switchToRegister} closeModal={closeModal} setIsLoggedIn={setIsLoggedIn} />
         ) : (
           <RegisterForm switchToLogin={switchToLogin} closeModal={closeModal} />
         )}
