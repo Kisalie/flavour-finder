@@ -23,9 +23,12 @@ import { cloudinary } from 'cloudinary'
 // import { cloudinary } from 'cloudinary'
 >>>>>>> ab51bf9 (Added update recipe icon link functionality and added styling to icons)
 
+<<<<<<< HEAD
 
 >>>>>>> 97457c9 (added update submit funcitonality)
 
+=======
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
 const generateUniqueId = () => uuidv4()
 
 <<<<<<< HEAD
@@ -48,6 +51,7 @@ export default function RecipeForm() {
   const [isFetching, setIsFetching] = useState(false)
   const [recipeInformation, setRecipeInformation] = useState({
 <<<<<<< HEAD
+<<<<<<< HEAD
     'name': '',
 =======
     'cuisine': '',
@@ -59,6 +63,15 @@ export default function RecipeForm() {
     'hours': '',
     'minutes': '',
     'serves': '',
+=======
+    cuisine: '',
+    title: '',
+    type: '',
+    image: '',
+    hours: '',
+    minutes: '',
+    serves: '',
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
     isVegan: false,
     isVegetarian: false,
     isPescatarian: false,
@@ -77,29 +90,32 @@ export default function RecipeForm() {
       const { data } = await axios.get(`/api/recipes/${id}`)
 
       // 1. Ingredients:
-      setIngredients(data.ingredients.map(ingredient => {
-        ingredient.id = generateUniqueId()
-        return ingredient
-      }))
+      setIngredients(
+        data.ingredients.map(ingredient => {
+          ingredient.id = generateUniqueId()
+          return ingredient
+        })
+      )
 
       // 2. Methods:
-      setMethods(data.method.map(method => {
-        return {
-          value: method,
-          id: generateUniqueId(),
-        }
-
-      }))
+      setMethods(
+        data.method.map(method => {
+          return {
+            value: method,
+            id: generateUniqueId(),
+          }
+        })
+      )
 
       // 3. RecipeInformation:
       setRecipeInformation({
-        'cuisine': data.cuisine,
-        'title': data.title,
-        'type': data.type,
-        'image': data.image,
-        'hours': data.cookingTime.hours,
-        'minutes': data.cookingTime.minutes,
-        'serves': data.serves,
+        cuisine: data.cuisine,
+        title: data.title,
+        type: data.type,
+        image: data.image,
+        hours: data.cookingTime.hours,
+        minutes: data.cookingTime.minutes,
+        serves: data.serves,
         isVegan: data.isVegan || false,
         isVegetarian: data.isVegetarian || false,
         isPescatarian: data.isPescatarian || false,
@@ -110,7 +126,6 @@ export default function RecipeForm() {
     }
 
     getAndUpdateState()
-
   }, [])
 
   // Generic handlers:
@@ -129,7 +144,44 @@ export default function RecipeForm() {
     }))
   }
 
-  const handleDietaryCheckboxChange = (value) => {
+  const handleUpload = event => {
+    event.preventDefault()
+
+    // Check if there's any file selected
+    if (!event.target.files || event.target.files.length === 0) {
+      alert('Please select a file.')
+      return
+    }
+
+    const file = event.target.files[0]
+
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1])
+    }
+
+    fetch(process.env.REACT_APP_CLOUDINARY_URL, {
+      method: 'POST',
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setRecipeInformation(prevState => ({
+          ...prevState,
+          image: data.secure_url,
+        }))
+        alert('Upload successful')
+      })
+      .catch(error => {
+        console.error('Error uploading:', error)
+        alert('Upload failed')
+      })
+  }
+
+  const handleDietaryCheckboxChange = value => {
     setRecipeInformation(prevState => {
       switch (value) {
         case 'vegan':
@@ -146,26 +198,29 @@ export default function RecipeForm() {
     })
   }
 
-  const { register, handleSubmit, formState: { errors }, control } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm({
     defaultValues: {
       cuisine: '',
       type: '',
     },
   })
 
-
-
   // Method
   const addMethod = () => {
     setMethods([...methods, { id: generateUniqueId(), value: '' }])
   }
 
-  const removeMethod = (methodId) => {
+  const removeMethod = methodId => {
     setMethods(methods.filter(method => method.id !== methodId))
   }
 
   const handleMethodNameChange = (e, methodId) => {
-    const newMethods = methods.map((method) => {
+    const newMethods = methods.map(method => {
       if (method.id === methodId) {
         return { ...method, value: e.target.value }
       }
@@ -174,13 +229,12 @@ export default function RecipeForm() {
     setMethods(newMethods)
   }
 
-
   // Ingredients
   const addIngredient = () => {
     setIngredients([...ingredients, { id: generateUniqueId(), ingredient: '', amount: '' }])
   }
 
-  const removeIngredient = (ingredientId) => {
+  const removeIngredient = ingredientId => {
     const newIngredients = ingredients.filter(ingredient => {
       return ingredient.id !== ingredientId
     })
@@ -201,18 +255,21 @@ export default function RecipeForm() {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const onSubmit = data => {
 =======
 =======
 
+=======
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
   const updateRecipe = async () => {
     const newObject = {
       ...recipeInformation,
       ingredients: ingredients,
-      method: methods.map((method) => method.value),
+      method: methods.map(method => method.value),
       cookingTime: { hours: recipeInformation.hours, minutes: recipeInformation.minutes },
     }
-    // Delete hours and minutes 
+    // Delete hours and minutes
     delete newObject.hours
     delete newObject.minutes
     try {
@@ -220,7 +277,7 @@ export default function RecipeForm() {
 
       const response = await axios.put(`/api/recipes/${id}`, newObject, {
         headers: {
-          'Authorization': `Bearer ${authorizationToken}`,
+          Authorization: `Bearer ${authorizationToken}`,
         },
       })
 
@@ -230,9 +287,7 @@ export default function RecipeForm() {
       } else {
         throw new Error('Unexpected response format from the server.')
       }
-
     } catch (error) {
-
       if (error.response && error.response.data) {
         if (error.response.data.message) {
           console.error('Error updating recipe:', error.response.data.message)
@@ -251,10 +306,14 @@ export default function RecipeForm() {
     const newObject = {
       ...recipeInformation,
       ingredients: ingredients,
+<<<<<<< HEAD
       method: methods,
+=======
+      method: methods.map(method => method.value),
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
       cookingTime: { hours: recipeInformation.hours, minutes: recipeInformation.minutes },
     }
-    // Delete hours and minutes 
+    // Delete hours and minutes
     delete newObject.hours
     delete newObject.minutes
 
@@ -262,8 +321,11 @@ export default function RecipeForm() {
 =======
     // TODO - If no id (recipeId) --> run createRecipe --> redirect
 
+<<<<<<< HEAD
 >>>>>>> e50c62f (Just need to write the update recipe.)
 
+=======
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
     const createRecipe = async () => {
 <<<<<<< HEAD
       const response = await axios.post('/api/recipes', newObject)
@@ -275,7 +337,7 @@ export default function RecipeForm() {
         const authorizationToken = localStorage.getItem('token')
         const response = await axios.post('/api/recipes', newObject, {
           headers: {
-            'Authorization': `Bearer ${authorizationToken}`,
+            Authorization: `Bearer ${authorizationToken}`,
           },
         })
 
@@ -285,7 +347,6 @@ export default function RecipeForm() {
         } else {
           throw new Error('Unexpected response format from the server.')
         }
-
       } catch (error) {
         // Check for specific error responses from your server and adjust the error message.
         if (error.response && error.response.data) {
@@ -298,7 +359,7 @@ export default function RecipeForm() {
           }
         } else {
           console.error('Error creating recipe:', error.message)
-          throw error  // re-throw to handle it in the outer function or log it.
+          throw error // re-throw to handle it in the outer function or log it.
         }
       }
     }
@@ -316,27 +377,56 @@ export default function RecipeForm() {
       setErrorMessage(`Error during recipe creation. Please check the details and try again. ${error.message}`)
       console.error('Error during recipe creation:', error.message)
     }
+<<<<<<< HEAD
 
 >>>>>>> 0b5c219 (Create recipe form now works.)
+=======
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
   }
 
   return (
     <main className='recipe-form-page'>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <form onSubmit={handleSubmit(onSubmit)}>
 =======
       {errorMessage && <div className="error-message">{errorMessage}</div>}
+=======
+      {errorMessage && <div className='error-message'>{errorMessage}</div>}
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
       <form onSubmit={id ? handleSubmit(updateRecipe) : handleSubmit(onSubmit)}>
 >>>>>>> 97457c9 (added update submit funcitonality)
         <label>Recipe Name</label>
         <input
+<<<<<<< HEAD
           value={recipeInformation.name}
           placeholder='New Recipe' {...register('title', { required: true })}
           onChange={(e) => handleInputChange('name', e.target.value)}
+=======
+          value={recipeInformation.title}
+          placeholder='New Recipe'
+          {...register('title', { required: true })}
+          onChange={e => handleInputChange('title', e.target.value)}
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
         />
-        {recipeInformation.image && <img src={recipeInformation.image} alt="Selected Recipe" style={{ maxWidth: '100%', height: 'auto' }} />}
+        {recipeInformation.image && (
+          <img src={recipeInformation.image} alt='Selected Recipe' style={{ maxWidth: '100%', height: 'auto' }} />
+        )}
 
+        <div className='field'>
+          <label htmlFor='image' className='label'>
+            Image
+          </label>
+          <div className='control'>
+            {recipeInformation.image ? (
+              <img src={recipeInformation.image} alt='Uploaded preview' style={{ maxWidth: '100%' }}></img>
+            ) : (
+              <input type='file' className='input' name='image' onChange={handleUpload} />
+            )}
+          </div>
+        </div>
 
+<<<<<<< HEAD
         <input type='file' accept='image/png, image/jpeg, image/jpg' {...register('image', { required: false })}
           onChange={(e) => {
             const file = e.target.files[0]
@@ -376,6 +466,13 @@ export default function RecipeForm() {
           onChange={(e) => handleInputChange('cuisine', e.target.value)}
 >>>>>>> e4c8105 (Finished wiring up the update form.)
 
+=======
+        <select
+          className='dropbtn'
+          {...register('cuisine', { required: true })}
+          value={recipeInformation.cuisine}
+          onChange={e => handleInputChange('cuisine', e.target.value)}
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
         >
           <option value='' disabled>
             Choose a cuisine
@@ -394,10 +491,19 @@ export default function RecipeForm() {
           <option value='Asian'>Asian</option>
         </select>
 
+<<<<<<< HEAD
         <select className='dropbtn' {...register('type', { required: true })}
           value={recipeInformation.dishType}
           placeholder='New Recipe'
           onChange={(e) => handleInputChange('dishType', e.target.value)}
+=======
+        <select
+          className='dropbtn'
+          {...register('type', { required: true })}
+          value={recipeInformation.type}
+          placeholder='New Recipe'
+          onChange={e => handleInputChange('type', e.target.value)}
+>>>>>>> a0abe85 (Added image upload and preview of uploaded image)
         >
           <option value='' disabled>
             Choose the dish type
@@ -409,47 +515,72 @@ export default function RecipeForm() {
         </select>
 
         <label>Hours</label>
-        <input type='number' min='0' max='12' {...register('hours', { required: true })} onChange={(e) => handleInputChange('hours', e.target.value)}
-          value={recipeInformation.hours} />
+        <input
+          type='number'
+          min='0'
+          max='12'
+          {...register('hours', { required: true })}
+          onChange={e => handleInputChange('hours', e.target.value)}
+          value={recipeInformation.hours}
+        />
         <label>Minutes</label>
-        <input type='number' min='0' max='59' {...register('minutes', { required: true })} onChange={(e) => handleInputChange('minutes', e.target.value)}
-          value={recipeInformation.minutes} />
+        <input
+          type='number'
+          min='0'
+          max='59'
+          {...register('minutes', { required: true })}
+          onChange={e => handleInputChange('minutes', e.target.value)}
+          value={recipeInformation.minutes}
+        />
 
         <label>Serves</label>
-        <input type='number' min='0' max='12' {...register('serves', { required: true })} onChange={(e) => handleInputChange('serves', e.target.value)}
+        <input
+          type='number'
+          min='0'
+          max='12'
+          {...register('serves', { required: true })}
+          onChange={e => handleInputChange('serves', e.target.value)}
           value={recipeInformation.serves}
         />
 
-
-        <section className="checkbox-container">
+        <section className='checkbox-container'>
           <label>
-            <input type="checkbox"
+            <input
+              type='checkbox'
               checked={recipeInformation.isVegan}
               value={recipeInformation.isVegan}
-              onChange={() => handleDietaryCheckboxChange('vegan')} />
+              onChange={() => handleDietaryCheckboxChange('vegan')}
+            />
             Vegan
           </label>
 
           <label>
-            <input type="checkbox" checked={recipeInformation.isVegetarian}
+            <input
+              type='checkbox'
+              checked={recipeInformation.isVegetarian}
               value={recipeInformation.isVegetarian}
-              onChange={() => handleDietaryCheckboxChange('vegetarian')} />
+              onChange={() => handleDietaryCheckboxChange('vegetarian')}
+            />
             Vegetarian
           </label>
 
           <label>
-            <input type="checkbox"
+            <input
+              type='checkbox'
               checked={recipeInformation.isGlutenFree}
               value={recipeInformation.isGlutenFree}
-              onChange={() => handleDietaryCheckboxChange('glutenFree')} />
+              onChange={() => handleDietaryCheckboxChange('glutenFree')}
+            />
             Gluten Free
           </label>
 
           <label>
-            <input type="checkbox"
+            <input
+              type='checkbox'
               checked={recipeInformation.isPescatarian}
               value={recipeInformation.isPescatarian}
-              onChange={() => handleDietaryCheckboxChange('pescatarian')} />
+              onChange={() => handleDietaryCheckboxChange('pescatarian')}
+            />
             Pescatarian
           </label>
         </section>
@@ -541,8 +672,7 @@ export default function RecipeForm() {
         </div>
 
         <input type='submit' value={id ? 'Update Recipe' : 'Submit Recipe'} />
-
       </form>
-    </main >
+    </main>
   )
 }
