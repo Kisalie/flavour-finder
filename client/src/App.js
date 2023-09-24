@@ -7,8 +7,13 @@ import Blog from './components/Blog'
 import SingleBlog from './components/SingleBlog'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
+<<<<<<< HEAD
 import RecipeForm from './components/RecipeForm'
 import Profile from './components/Profile'
+=======
+import Filter from './components/Filter.js'
+import Featured from './components/FeaturedRecipes'
+>>>>>>> 80a3042 (featured 1/2 done)
 
 export default function App() {
   return (
@@ -22,6 +27,11 @@ export default function App() {
         <Route path='/recipes/:id' element={<SingleRecipe />} />
         <Route path='/blogs' element={<Blog />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        <Route path= '/recipes/type/:type' element={<Filter/>} />
+        <Route path="*" element={<NotFound />} />
+>>>>>>> 80a3042 (featured 1/2 done)
         <Route path='/blogs/:id' element={<SingleBlog />} />
 <<<<<<< HEAD
 =======

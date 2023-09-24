@@ -2,6 +2,7 @@ import React from 'react'
 import CarouselWrapper from './Carousel'
 import AnimationImage from '../images/animation-image.jpeg'
 import Blogs from './Blog.js'
+import Featured from './FeaturedRecipes'
 
 <<<<<<< HEAD
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     <main>
       <CarouselWrapper />
       <Blogs />
+      <Featured />
 
       {/* <div className='animation-container'>
         <img src={AnimationImage} alt='Animation' />
