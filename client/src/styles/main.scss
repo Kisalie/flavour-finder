@@ -17,6 +17,7 @@
 @import 'partials/accountModal.scss';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 @import '~bootstrap/scss/bootstrap';
 >>>>>>> 359a961 (added a Carousel)
@@ -30,6 +31,9 @@
 =======
 @import 'partials/userDropdown.scss';
 >>>>>>> fbeb392 (Added dropdown to show instead of modal if a user is logged in)
+=======
+@import 'partials/slider.scss';
+>>>>>>> bcb983f (Added global label style in main.scss. Added spice level slider styling and added a slider marker that marks the current value.)
 
 <<<<<<< HEAD
 $primary-orange: #C57D4A;
@@ -120,4 +124,10 @@ button {
   border: none;
   padding: 0;
   cursor: pointer;
+}
+
+label {
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
