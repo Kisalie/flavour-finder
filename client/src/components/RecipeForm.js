@@ -6,10 +6,16 @@ import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 import { useEffect } from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 >>>>>>> 0b5c219 (Create recipe form now works.)
+=======
+import { useParams, Link, useNavigate } from 'react-router-dom'
+
+
+>>>>>>> 97457c9 (added update submit funcitonality)
 
 const generateUniqueId = () => uuidv4()
 
@@ -185,8 +191,52 @@ export default function RecipeForm() {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const onSubmit = data => {
 =======
+=======
+
+  const updateRecipe = async () => {
+    const newObject = {
+      ...recipeInformation,
+      ingredients: ingredients,
+      method: methods.map((method) => method.value),
+      cookingTime: { hours: recipeInformation.hours, minutes: recipeInformation.minutes },
+    }
+    // Delete hours and minutes 
+    delete newObject.hours
+    delete newObject.minutes
+    try {
+      const authorizationToken = localStorage.getItem('token')
+
+      const response = await axios.put(`/api/recipes/${id}`, newObject, {
+        headers: {
+          'Authorization': `Bearer ${authorizationToken}`,
+        },
+      })
+
+      console.log(response)
+      if (response && response.data) {
+        navigate(`/user/${addedBy}`)
+      } else {
+        throw new Error('Unexpected response format from the server.')
+      }
+
+    } catch (error) {
+
+      if (error.response && error.response.data) {
+        if (error.response.data.message) {
+          console.error('Error updating recipe:', error.response.data.message)
+          throw new Error(error.response.data.message)
+        }
+      } else {
+        console.error('Error updating recipe:', error.message)
+        throw error
+      }
+    }
+  }
+
+>>>>>>> 97457c9 (added update submit funcitonality)
   const onSubmit = async () => {
 >>>>>>> 0b5c219 (Create recipe form now works.)
     const newObject = {
@@ -263,7 +313,12 @@ export default function RecipeForm() {
 
   return (
     <main className='recipe-form-page'>
+<<<<<<< HEAD
       <form onSubmit={handleSubmit(onSubmit)}>
+=======
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      <form onSubmit={id ? handleSubmit(updateRecipe) : handleSubmit(onSubmit)}>
+>>>>>>> 97457c9 (added update submit funcitonality)
         <label>Recipe Name</label>
         <input
           value={recipeInformation.name}
