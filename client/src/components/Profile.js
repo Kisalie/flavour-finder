@@ -89,8 +89,12 @@ export default function Profile() {
       <Link to={`/user/${addedBy}/create`}>
 =======
       <Link className='create-link' to={`/user/${userId}/create`}>
+<<<<<<< HEAD
 >>>>>>> ab51bf9 (Added update recipe icon link functionality and added styling to icons)
         Create New Recipe
+=======
+        Create Recipe
+>>>>>>> 4c4bf21 (Final)
       </Link>
 <<<<<<< HEAD
 <<<<<<< HEAD
