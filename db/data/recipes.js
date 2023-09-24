@@ -129,7 +129,11 @@ export default [
   },
   {
     title: 'Stir-fry Tofu and Vegetables',
+<<<<<<< HEAD
     image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794161/flavour-finder/stir-fry-tofu-and-vegetables_xtgyiv.jpg',
+=======
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787588/flavour-finder/tofu-stir-fry_crsths.jpg',
+>>>>>>> d51fe31 (image urls added)
     cuisine: 'Asian',
     ingredients: [
       { ingredient: 'Tofu', amount: '300 grams' },
@@ -415,7 +419,11 @@ export default [
   },
   {
     title: 'Shrimp Cocktail',
+<<<<<<< HEAD
     image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694794155/flavour-finder/shrimp-cocktail_fkvcme.jpg',
+=======
+    image: '',
+>>>>>>> d51fe31 (image urls added)
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Shrimp', amount: '1 pound' },
@@ -459,7 +467,7 @@ export default [
   },
   {
     title: 'Paneer Tikka',
-    image: 'paneer_tikka.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787582/flavour-finder/paneer-tikka_xj2uuj.jpg',
     cuisine: 'Indian',
     ingredients: [
       { ingredient: 'Paneer', amount: '400 grams' },
@@ -513,7 +521,7 @@ export default [
   },
   {
     title: 'Quinoa Salad',
-    image: 'quinoa_salad.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787579/flavour-finder/quinoa-salad_u1szof.jpg',
     cuisine: 'Mediterranean',
     ingredients: [
       { ingredient: 'Quinoa', amount: '1 cup' },
@@ -538,7 +546,7 @@ export default [
   },
   {
     title: 'Mashed Potatoes',
-    image: 'mashed_potatoes.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787578/flavour-finder/mashed-potatoes_fkbq0d.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Potatoes', amount: '4 large' },
@@ -562,7 +570,7 @@ export default [
   },
   {
     title: 'Vegan Tacos',
-    image: 'vegan_tacos.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787589/flavour-finder/vegan-tacos_gilub8.jpg',
     cuisine: 'Mexican',
     ingredients: [
       { ingredient: 'Corn tortillas', amount: '8' },
@@ -588,7 +596,7 @@ export default [
   },
   {
     title: 'Quinoa Stuffed Peppers',
-    image: 'quinoa_stuffed_peppers.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787580/flavour-finder/quinoa-stuffed-peppers_ypjrad.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Bell peppers', amount: '4' },
@@ -618,7 +626,7 @@ export default [
   },
   {
     title: 'Chicken Marsala',
-    image: 'chicken_marsala.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787573/flavour-finder/chicken-marsala_r8smbw.jpg',
     cuisine: 'Italian',
     ingredients: [
       { ingredient: 'Chicken breasts', amount: '4' },
@@ -647,7 +655,7 @@ export default [
   },
   {
     title: 'Lamb Curry',
-    image: 'lamb_curry.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787575/flavour-finder/lamb-curry_qel0c8.jpg',
     cuisine: 'Indian',
     ingredients: [
       { ingredient: 'Lamb', amount: '500 grams' },
@@ -678,7 +686,7 @@ export default [
   },
   {
     title: 'Shrimp Paella',
-    image: 'shrimp_paella.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787584/flavour-finder/shrimp-paella_ciddr0.jpg',
     cuisine: 'Spanish',
     ingredients: [
       { ingredient: 'Rice', amount: '1 cup' },
@@ -707,7 +715,7 @@ export default [
   },
   {
     title: 'Pulled Pork Sandwich',
-    image: 'pulled_pork_sandwich.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787583/flavour-finder/pulled-pork-sandwich_u6hi4i.jpg',
     cuisine: 'American',
     ingredients: [
       { ingredient: 'Pork shoulder', amount: '1 kg' },
@@ -730,7 +738,7 @@ export default [
   },
   {
     title: 'Vegetable Stir-Fry',
-    image: 'vegetable_stir_fry.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787590/flavour-finder/vegetable-stir-fry_dyiaob.jpg',
     cuisine: 'Asian',
     ingredients: [
       { ingredient: 'Mixed vegetables', amount: '4 cups' },
@@ -754,7 +762,7 @@ export default [
   },
   {
     title: 'Lentil Soup',
-    image: 'lentil_soup.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787576/flavour-finder/lentil-soup_cyfrsy.jpg',
     cuisine: 'Mediterranean',
     ingredients: [
       { ingredient: 'Lentils', amount: '1 cup' },
@@ -780,7 +788,7 @@ export default [
   },
   {
     title: 'Chicken Fajitas',
-    image: 'chicken_fajitas.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787571/flavour-finder/chicken-fajitas_euzbwl.jpg',
     cuisine: 'Mexican',
     ingredients: [
       { ingredient: 'Chicken breast', amount: '500 grams' },
@@ -809,7 +817,7 @@ export default [
   },
   {
     title: 'Greek Moussaka',
-    image: 'greek_moussaka.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787574/flavour-finder/greek-moussaka_wvicnt.jpg',
     cuisine: 'Greek',
     ingredients: [
       { ingredient: 'Eggplant', amount: '2' },
@@ -838,7 +846,7 @@ export default [
   },
   {
     title: 'Steak Diane',
-    image: 'steak_diane.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787585/flavour-finder/steak-diane_smlvfq.jpg',
     cuisine: 'European',
     ingredients: [
       { ingredient: 'Beef fillets', amount: '4' },
@@ -870,7 +878,7 @@ export default [
   },
   {
     title: 'Szechuan Chicken',
-    image: 'szechuan_chicken.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787586/flavour-finder/szechuan-chicken_bxw72r.jpg',
     cuisine: 'Chinese',
     ingredients: [
       { ingredient: 'Chicken', amount: '500 grams' },
@@ -898,7 +906,7 @@ export default [
   },
   {
     title: 'Butter Chicken',
-    image: 'butter_chicken.png',
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694787571/flavour-finder/butter-chicken_thrfdw.jpg',
     cuisine: 'Indian',
     ingredients: [
       { ingredient: 'Chicken', amount: '500 grams' },
