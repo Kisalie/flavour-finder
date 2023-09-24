@@ -1,6 +1,14 @@
 @import 'variables.scss';
 @import 'partials/header';
+<<<<<<< HEAD
 @import 'partials/singlerecipe';
+=======
+@import 'partials/browseRecipes.scss';
+
+$primary-orange: #C57D4A;
+$background-light: #DB9C6F;
+$primary-text: #F7F3E8;
+>>>>>>> 013df98 (browse-all)
 
 * {
   box-sizing: border-box;
