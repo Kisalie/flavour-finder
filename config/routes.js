@@ -1,5 +1,9 @@
 import express from 'express'
+<<<<<<< HEAD
 import { getAllRecipes, getSingleRecipe, createRecipe, updateRecipe, deleteRecipe, getRecipesByUser } from '../controllers/recipes.js'
+=======
+import { getAllRecipes, getSingleRecipe, createRecipe, updateRecipe, deleteRecipe, getRecipesByType, getRecipesByCuisine } from '../controllers/recipes.js'
+>>>>>>> 38f5619 (backend featured?)
 import { registerUser, loginUser } from '../controllers/users.js'
 import { secureRoute } from './secureRoute.js'
 import { getAllBlogs, getSingleBlog } from '../controllers/blogs.js'
@@ -17,9 +21,17 @@ router.route('/recipes/:id')
   .put(secureRoute, updateRecipe)
   .delete(secureRoute, deleteRecipe)
 
+<<<<<<< HEAD
 // By ID
 router.route('/user/:addedBy')
   .get(getRecipesByUser)
+=======
+router.route('/recipes/type/:type')
+  .get(getRecipesByType)
+
+router.route('/recipes/cuisine/:cuisine')
+  .get(getRecipesByCuisine)
+>>>>>>> 38f5619 (backend featured?)
   
 // ! Users
 router.route('/register')
