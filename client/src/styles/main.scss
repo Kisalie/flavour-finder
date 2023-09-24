@@ -41,11 +41,27 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 h1 {
   text-align: center;
   color: #f7f3e8;
   margin-top: 120px;
 =======
+=======
+main {
+  padding-top: 65px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 76.19px;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #f7f3e8;
+}
+
+>>>>>>> 24681a0 (Separated header and menu and put them under a container so that the menu can show below the header in their own flow rather than overlapping each other or having to add any margin)
 .search-bar {
   display: flex;
   align-items: center;
