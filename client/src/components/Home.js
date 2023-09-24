@@ -5,7 +5,7 @@ import AnimationImage from '../images/animation-image.jpeg'
 <<<<<<< HEAD
 export default function Home() {
   return (
-    <>
+    <main>
       <CarouselWrapper />
 
       {/* <div className='animation-container'>
@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <h1 className='hero-heading'>Recipe Title</h1>
       </div> */}
-    </>
+    </main>
   )
 }
 =======
