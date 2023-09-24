@@ -59,16 +59,22 @@ export default function Profile() {
   }, [])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   async function handleDelete(id){
+=======
+  async function handleDelete(recipeId){
+>>>>>>> 220c538 (delete working)
     try {
-      await axios.delete(`/api/recipes/${id}`, {
+      console.log('delete is broken')
+      await axios.delete(`/api/recipes/${recipeId}`, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
       })
       navigate('/user/:addedBy')
     } catch (error) {
+      console.log('delete is defo broken')
       console.log(error)
     }
   }
@@ -110,16 +116,12 @@ export default function Profile() {
                 backgroundImage: `url(${recipe.image})`,
               }}
             >
-              { userId === recipe.addedBy._id && 
-                <div className="edit-buttons">
-                  <FontAwesomeIcon onClick={handleDelete(id)} icon={faTrash} />
-                  <Link to={`/user/${recipe.addedBy._id}/${id}`}>
-                    <FontAwesomeIcon className='update' icon={faPen} />
-                  </Link>
-                </div>
-              }
-              {/* Icon as button for delete -> onClick to delete, <Link> for update that redirects to update recipe page on click */}
-              {/* CSS: position: absolute, right: 0 (Must have position: relative; on the parent recipe container) */}
+              <div className="edit-buttons">
+                <FontAwesomeIcon onClick={() => handleDelete(recipe._id)} icon={faTrash} />
+                <Link to={`/user/${recipe.addedBy._id}/${id}`}>
+                  <FontAwesomeIcon className='update' icon={faPen} />
+                </Link>
+              </div>
               <div className='recipe-title'>
                 <p>{recipe.title}</p>
               </div>
@@ -128,6 +130,7 @@ export default function Profile() {
 =======
 >>>>>>> 1a38f65 (Updated dropdown links and added Create Recipe to login)
             </div>
+
           </Link>
         ))}
       </section>
