@@ -1,10 +1,13 @@
 import React from 'react'
+import CarouselWrapper from './Carousel'
 import AnimationImage from '../images/animation-image.jpeg'
 
 <<<<<<< HEAD
 export default function Home() {
   return (
     <>
+      <CarouselWrapper />
+
       {/* <div className='animation-container'>
         <img src={AnimationImage} alt='Animation' />
         <div id='animated-words' className='animated-words'>
