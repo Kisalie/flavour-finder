@@ -28,19 +28,22 @@ export default function Profile() {
   useEffect(() => {
     async function getRecipesByUser() {
       try {
+<<<<<<< HEAD
         // const { data } = await axios.get(`/user/${userId}`)
         const { data } = await axios.get(`/api/user/${userId}`)
+=======
+        const { data } = await axios.get(`/api/user/${userId}`)
+        // const { data } = await axios.get('/api/user/650c2cfbde13d1a3da109eff')
+>>>>>>> 1a38f65 (Updated dropdown links and added Create Recipe to login)
         setUsersRecipes(data)
         console.log(userId)
+        console.log(data)
       } catch (error) {
         console.log(error.message)
       }
     }
     getRecipesByUser()
-  }, []
-
-  )
-
+  }, [])
 
 
   return (
@@ -51,6 +54,7 @@ export default function Profile() {
       <Link to={`/user/${addedBy}/create`}>
         Create New Recipe
       </Link>
+<<<<<<< HEAD
 
       {/* {usersRecipes.map((recipe) => (
         <Link key={recipe._id} to={`/recipes/${recipe._id}`} className='recipe'>
@@ -63,6 +67,8 @@ export default function Profile() {
             <div className='recipe-title'>
               <p>{recipe.title}</p>
 =======
+=======
+>>>>>>> 1a38f65 (Updated dropdown links and added Create Recipe to login)
       <h2>Recipes you added:</h2>
       <section className='grid-container'>
         {usersRecipes.map((recipe) => (
@@ -76,11 +82,18 @@ export default function Profile() {
               <div className='recipe-title'>
                 <p>{recipe.title}</p>
               </div>
+<<<<<<< HEAD
 >>>>>>> ea88f2e (profile working, temp hard coded user)
+=======
+>>>>>>> 1a38f65 (Updated dropdown links and added Create Recipe to login)
             </div>
           </Link>
         ))}
       </section>
     </main>
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1a38f65 (Updated dropdown links and added Create Recipe to login)
