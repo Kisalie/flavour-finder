@@ -1,11 +1,14 @@
 import axios from 'axios'
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 export default function Carousel() {
 
   return <h1>Carousel</h1>
 =======
+=======
+>>>>>>> 29026ec (merge changes)
 import { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -55,5 +58,8 @@ export default function CarouselWrapper() {
       }
     </Carousel>
   )
+<<<<<<< HEAD
 >>>>>>> 359a961 (added a Carousel)
+=======
+>>>>>>> 29026ec (merge changes)
 }
