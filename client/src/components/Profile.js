@@ -85,7 +85,11 @@ export default function Profile() {
       <h1>Welcome back!</h1>
 <<<<<<< HEAD
       <h2>My recipes</h2>
+<<<<<<< HEAD
       <Link to={`/user/${addedBy}/create`}>
+=======
+      <Link className='create-link' to={`/user/${userId}/create`}>
+>>>>>>> ab51bf9 (Added update recipe icon link functionality and added styling to icons)
         Create New Recipe
       </Link>
 <<<<<<< HEAD
@@ -117,10 +121,14 @@ export default function Profile() {
               }}
             >
               <div className="edit-buttons">
-                <FontAwesomeIcon onClick={() => handleDelete(recipe._id)} icon={faTrash} />
-                <Link to={`/user/${recipe.addedBy._id}/${id}`}>
-                  <FontAwesomeIcon className='update' icon={faPen} />
+                <Link to={`/user/${recipe.addedBy}/${recipe._id}`}>
+                  <div className='icon-container'>
+                    <FontAwesomeIcon className='update' icon={faPen} />
+                  </div>
                 </Link>
+                <div className='icon-container delete-icon'>
+                  <FontAwesomeIcon onClick={() => handleDelete(recipe._id)} icon={faTrash} />
+                </div>
               </div>
               <div className='recipe-title'>
                 <p>{recipe.title}</p>

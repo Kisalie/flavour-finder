@@ -16,8 +16,12 @@ import { useParams } from 'react-router-dom'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 =======
 import { useParams, useNavigate } from 'react-router-dom'
+<<<<<<< HEAD
 import { cloudinary } from 'cloudinary'
 >>>>>>> 442ebb3 (Started to work on the image upload, we should fallback to just using an axios.get() if we cant figure the file upload.)
+=======
+// import { cloudinary } from 'cloudinary'
+>>>>>>> ab51bf9 (Added update recipe icon link functionality and added styling to icons)
 
 
 >>>>>>> 97457c9 (added update submit funcitonality)

@@ -43,7 +43,11 @@
 =======
 >>>>>>> ef0ff8a (Removed spice level filter)
 @import 'partials/featured.scss';
+<<<<<<< HEAD
 >>>>>>> 2767f67 (featured branch completed)
+=======
+@import 'partials/profile.scss';
+>>>>>>> ab51bf9 (Added update recipe icon link functionality and added styling to icons)
 
 <<<<<<< HEAD
 $primary-orange: #C57D4A;
@@ -149,8 +153,4 @@ label {
   left: 50%;
   transform: translate(-50%,-50%);
   width: 24px;
-}
-
-.svg-inline--fa {
-  width: 80px;
 }
