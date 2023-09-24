@@ -101,7 +101,9 @@ export default function Header() {
           <img
             src={isMenuOpen ? CloseIcon : MenuIcon}
             width={isMenuOpen ? '11px' : '16px'}
-            className={`menu-icon ${animation === 'shrinking' ? 'shrink-icon' : animation === 'growing' ? 'grow-icon' : ''}`}
+            className={`menu-icon ${
+              animation === 'shrinking' ? 'shrink-icon' : animation === 'growing' ? 'grow-icon' : ''
+            }`}
             onClick={handleClick}
             alt='menu-icon'
           />
@@ -158,6 +160,7 @@ export default function Header() {
         </Link>
       </div>
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
       <AccountModal setUserId={setUserId} isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />
@@ -165,6 +168,12 @@ export default function Header() {
       {!isLoggedIn && <AccountModal isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />}
       {isLoggedIn && <UserDropdown isVisible={isUserDropdownVisible} logOutuser={logOutuser} />}
 >>>>>>> 64ed2c0 (Added dropdown sliding animation and adjust width of side menu links)
+=======
+      {!isLoggedIn && (
+        <AccountModal isVisible={isModalVisible} setIsLoggedIn={setIsLoggedIn} closeModal={toggleModal} />
+      )}
+      {isLoggedIn && <UserDropdown isVisible={isUserDropdownVisible} logOutuser={logOutuser} />}
+>>>>>>> 9f5e371 (Fixed merge)
     </>
   )
 }
