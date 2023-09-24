@@ -37,7 +37,6 @@ body {
   background-color: $background-dark;
   color: $text-light;
   font-family: 'Poppins';
-  overflow: hidden;
 }
 
 <<<<<<< HEAD
@@ -61,7 +60,15 @@ h1 {
   color: #f7f3e8;
 }
 
+<<<<<<< HEAD
 >>>>>>> 24681a0 (Separated header and menu and put them under a container so that the menu can show below the header in their own flow rather than overlapping each other or having to add any margin)
+=======
+a {
+  color: $text-light;
+  text-decoration: none;
+}
+
+>>>>>>> a541746 (Updated recipe images)
 .search-bar {
   display: flex;
   align-items: center;
