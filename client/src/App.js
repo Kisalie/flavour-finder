@@ -8,6 +8,7 @@ import SingleBlog from './components/SingleBlog'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
 import RecipeForm from './components/RecipeForm'
+import Profile from './components/Profile'
 
 export default function App() {
   return (
@@ -28,7 +29,11 @@ export default function App() {
 >>>>>>> d9b791f (page not found)
 =======
         <Route path='/recipes/create' element={<RecipeForm />} />
+<<<<<<< HEAD
 >>>>>>> 3203e08 (added form)
+=======
+        <Route path='/user/:addedBy' element={<Profile />} />
+>>>>>>> 6aa22af (profile with errors importing isAuthenticated)
       </Routes>
       {/* Show Footer on all pages */}
       <Footer />
