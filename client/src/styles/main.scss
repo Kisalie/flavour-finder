@@ -2,6 +2,7 @@
 @import 'partials/header';
 <<<<<<< HEAD
 @import 'partials/singlerecipe';
+<<<<<<< HEAD
 =======
 @import 'partials/browseRecipes.scss';
 
@@ -9,6 +10,9 @@ $primary-orange: #C57D4A;
 $background-light: #DB9C6F;
 $primary-text: #F7F3E8;
 >>>>>>> 013df98 (browse-all)
+=======
+@import 'partials/browseRecipes.scss';
+>>>>>>> dc79d1b (Merged everything and added sushi image)
 
 * {
   box-sizing: border-box;
@@ -18,4 +22,5 @@ $primary-text: #F7F3E8;
 body {
   background-color: $background-dark;
   color: $text-light;
+  font-family: Helvetica;
 }

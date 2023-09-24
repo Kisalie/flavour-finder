@@ -1,9 +1,13 @@
 export default [
   {
     title: 'Sushi',
+<<<<<<< HEAD
     image: 'sushi.png',
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+    image: 'https://res.cloudinary.com/dlcb7n93a/image/upload/v1694790480/flavour-finder/sushi_dhqk4c.jpg',
+>>>>>>> dc79d1b (Merged everything and added sushi image)
     cuisine: 'Japanese',
     ingredients: [{ ingredient: 'Rice', amount: '300 grams' }, { ingredient: 'fish', amount: '225 grams' }, { ingredient: 'seaweed', amount: '25 grams' }, { ingredient: 'vegetables', amount: '500 grams' }],
 =======
