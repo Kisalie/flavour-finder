@@ -19,13 +19,17 @@ import { isAuthenticated } from '../utils/auth.js'
 export default function Profile() {
   const userId = isAuthenticated()
   const [usersRecipes, setUsersRecipes] = useState([])
+<<<<<<< HEAD
 >>>>>>> ea88f2e (profile working, temp hard coded user)
+=======
+  console.log(userId)
+>>>>>>> ac954f1 (changes)
 
   useEffect(() => {
     async function getRecipesByUser() {
       try {
         // const { data } = await axios.get(`/user/${userId}`)
-        const { data } = await axios.get('/api/user/650c2cfbde13d1a3da109eff')
+        const { data } = await axios.get(`/api/user/${userId}`)
         setUsersRecipes(data)
         console.log(userId)
       } catch (error) {
