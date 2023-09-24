@@ -28,6 +28,7 @@ export default function App() {
         <Route path='/blogs' element={<Blog />} />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <Route path= '/recipes/type/:type' element={<Filter/>} />
         <Route path="*" element={<NotFound />} />
@@ -44,6 +45,13 @@ export default function App() {
 =======
         <Route path='/user/:addedBy' element={<Profile />} />
 >>>>>>> 6aa22af (profile with errors importing isAuthenticated)
+=======
+        <Route path='/recipes/type/:type' element={<Filter />} />
+        <Route path='/blogs/:id' element={<SingleBlog />} />
+        <Route path='/user/:addedBy/create' element={<RecipeForm />} />
+        <Route path='/user/:addedBy' element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+>>>>>>> 0b5c219 (Create recipe form now works.)
       </Routes>
       {/* Show Footer on all pages */}
       <Footer />

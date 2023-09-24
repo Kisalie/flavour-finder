@@ -5,11 +5,22 @@ import RemoveIcon from '../images/remove-icon.png'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 import { useEffect } from 'react'
+<<<<<<< HEAD
+=======
+import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+>>>>>>> 0b5c219 (Create recipe form now works.)
 
 const generateUniqueId = () => uuidv4()
 
-export default function RecipeForm({ formId, userId }) {
+export default function RecipeForm({ formId }) {
+  const { addedBy } = useParams() // Extract addedBy from the route parameters
 
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate()
+
+>>>>>>> 0b5c219 (Create recipe form now works.)
   // State:
   const [ingredients, setIngredients] = useState([{ id: generateUniqueId(), name: '', amount: '' }])
   const [methods, setMethods] = useState([{ id: generateUniqueId(), value: '' }])
@@ -130,7 +141,11 @@ export default function RecipeForm({ formId, userId }) {
     setIngredients(newIngredients)
   }
 
+<<<<<<< HEAD
   const onSubmit = data => {
+=======
+  const onSubmit = async () => {
+>>>>>>> 0b5c219 (Create recipe form now works.)
     const newObject = {
       ...recipeInformation,
       ingredients: ingredients,
@@ -143,14 +158,58 @@ export default function RecipeForm({ formId, userId }) {
 
 
     const createRecipe = async () => {
+<<<<<<< HEAD
       const response = await axios.post('/api/recipes', newObject)
       console.log(response)
     }
     createRecipe()
+=======
+      try {
+        const authorizationToken = localStorage.getItem('token')
+        const response = await axios.post('/api/recipes', newObject, {
+          headers: {
+            'Authorization': `Bearer ${authorizationToken}`,
+          },
+        })
+
+        // Check if response has the created recipe object with an _id.
+        if (response && response.data && response.data._id) {
+          return response.data._id
+        } else {
+          throw new Error('Unexpected response format from the server.')
+        }
+
+      } catch (error) {
+        // Check for specific error responses from your server and adjust the error message.
+        if (error.response && error.response.data) {
+          if (error.response.data.error && error.response.data.error.name === 'Duplicate recipe') {
+            console.error('Duplicate recipe detected:', error.response.data.error.field)
+            throw new Error('Recipe already exists with the provided details.')
+          } else if (error.response.data.message) {
+            console.error('Error creating recipe:', error.response.data.message)
+            throw new Error(error.response.data.message)
+          }
+        } else {
+          console.error('Error creating recipe:', error.message)
+          throw error  // re-throw to handle it in the outer function or log it.
+        }
+      }
+    }
+
+    try {
+      const dataId = await createRecipe()
+      if (dataId) {
+        navigate(`/user/${addedBy}`)
+      } else {
+        setErrorMessage('Failed to get the ID from the response. Please try again.')
+      }
+    } catch (error) {
+      setErrorMessage(`Error during recipe creation. Please check the details and try again. ${error.message}`)
+      console.error('Error during recipe creation:', error.message)
+    }
+
+>>>>>>> 0b5c219 (Create recipe form now works.)
   }
-
-
-
 
   return (
     <main className='recipe-form-page'>
@@ -321,9 +380,7 @@ export default function RecipeForm({ formId, userId }) {
           </button>
         </div>
 
-
         <input type='submit' value='Submit Recipe' />
-
 
       </form>
     </main >

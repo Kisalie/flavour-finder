@@ -16,12 +16,18 @@
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "sass": "^1.66.1",
     "uuid": "^9.0.1"
 =======
     "react-social-icons": "^6.3.0",
     "sass": "^1.66.1"
 >>>>>>> 1b3b563 (completed footer)
+=======
+    "react-social-icons": "^6.3.0",
+    "sass": "^1.66.1",
+    "uuid": "^9.0.1"
+>>>>>>> 0b5c219 (Create recipe form now works.)
   },
   "scripts": {
     "start": "react-scripts start",
