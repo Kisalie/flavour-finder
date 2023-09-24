@@ -1,6 +1,7 @@
 import React from 'react'
 import AnimationImage from '../images/animation-image.jpeg'
 
+<<<<<<< HEAD
 export default function Home() {
   return (
     <>
@@ -14,3 +15,8 @@ export default function Home() {
     </>
   )
 }
+=======
+export default function Home() {  
+  return
+}
+>>>>>>> 104d0d5 (Added new logo)
