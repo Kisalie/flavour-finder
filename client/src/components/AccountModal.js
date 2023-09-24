@@ -2,10 +2,11 @@ import { useState } from 'react'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Illustration from '../images/chef-illustration.png'
+import RecipeUploadIllustration from '../images/upload-illustration.png'
 
 
 export default function AccountModal({ isVisible, closeModal }) {
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
 
   const switchToRegister = () => {
     setIsLogin(false)
@@ -17,6 +18,7 @@ export default function AccountModal({ isVisible, closeModal }) {
 
   return (
     <div className={`account-modal-container ${isVisible ? 'open' : ''}`}>
+<<<<<<< HEAD
       <img src={Illustration} width='480px' />
 <<<<<<< HEAD
       <div className='form-and-title-container'>
@@ -45,6 +47,14 @@ export default function AccountModal({ isVisible, closeModal }) {
         </div>
 >>>>>>> 419e701 (Finished register form and added a close button to close the account modal)
         {isLogin ? <LoginForm switchToRegister={switchToRegister} /> : <RegisterForm switchToLogin={switchToLogin} />}
+=======
+      <div className='form-container'>
+        {isLogin ? (
+          <LoginForm switchToRegister={switchToRegister} closeModal={closeModal} />
+        ) : (
+          <RegisterForm switchToLogin={switchToLogin} closeModal={closeModal} />
+        )}
+>>>>>>> 32fd0d2 (Added loading and success animations)
       </div>
     </div>
   )
