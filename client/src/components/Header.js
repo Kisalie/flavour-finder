@@ -83,9 +83,8 @@ export default function Header() {
           <img
             src={isMenuOpen ? CloseIcon : MenuIcon}
             width={isMenuOpen ? '11px' : '16px'}
-            className={`menu-icon ${
-              animation === 'shrinking' ? 'shrink-icon' : animation === 'growing' ? 'grow-icon' : ''
-            }`}
+            className={`menu-icon ${animation === 'shrinking' ? 'shrink-icon' : animation === 'growing' ? 'grow-icon' : ''
+              }`}
             onClick={handleClick}
             alt='menu-icon'
           />
@@ -105,11 +104,11 @@ export default function Header() {
 
         {/* BUTTONS */}
         <div className='header-buttons'>
-          <div className='search-bar'>
+          {/* <div className='search-bar'>
             <input type='text' placeholder='Search...' />
             <img src={SearchIcon}></img>
           </div>
-          <img src={SearchIcon} className='header-buttons-search' />
+          <img src={SearchIcon} className='header-buttons-search' /> */}
           <img src={AccountIcon} onClick={toggleModal} />
         </div>
       </header>
