@@ -43,23 +43,18 @@ export default function RecipeForm() {
       //  Get data --> { wrangle the data and set each bit of state. RecipeName, Hours, Minutes}
       const { data } = await axios.get(`/api/recipes/${id}`)
 
-      // 1. Ingredients:
-      setIngredients(
-        data.ingredients.map(ingredient => {
-          ingredient.id = generateUniqueId()
-          return ingredient
-        })
-      )
+      // Set Local State
+      const mappedIngredients = data.ingredients.map(ingredient => ({
+        ...ingredient,
+        id: generateUniqueId(),
+      }))
+      setIngredients(mappedIngredients)
 
-      // 2. Methods:
-      setMethods(
-        data.method.map(method => {
-          return {
-            value: method,
-            id: generateUniqueId(),
-          }
-        })
-      )
+      const mappedMethods = data.method.map(method => ({
+        value: method,
+        id: generateUniqueId(),
+      }))
+      setMethods(mappedMethods)
 
       // 3. RecipeInformation:
       setRecipeInformation({
@@ -76,7 +71,29 @@ export default function RecipeForm() {
         isGlutenFree: data.isGlutenFree || false,
       })
 
+      setValue('cuisine', data.cuisine)
+      setValue('title', data.title)
+      setValue('type', data.type)
+      setValue('hours', data.cookingTime.hours)
+      setValue('minutes', data.cookingTime.minutes)
+      setValue('serves', data.serves)
+      setValue('isVegan', data.isVegan)
+      setValue('isVegetarian', data.isVegetarian)
+      setValue('isPescatarian', data.isPescatarian)
+      setValue('isGlutenFree', data.isGlutenFree)
+
+      // Update Form State for React Hook Form
+      mappedIngredients.forEach((ingredient, index) => {
+        setValue(`ingredients[${index}].ingredient`, ingredient.ingredient)
+        setValue(`ingredients[${index}].amount`, ingredient.amount)
+      })
+
+      mappedMethods.forEach((method, index) => {
+        setValue(`method[${index}].method`, method.value)
+      })
+
       setIsFetching(true)
+
     }
 
     getAndUpdateState()
@@ -156,6 +173,7 @@ export default function RecipeForm() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
     control,
   } = useForm({
     defaultValues: {
@@ -448,23 +466,15 @@ export default function RecipeForm() {
         <div className='container-ingredients'>
           {ingredients.map((ingredient, index) => (
             <div className='ingredient-container' key={ingredient.id}>
-              <Controller
-                name={`ingredients[${index}].ingredient`}
-                control={control}
-                defaultValue={ingredient.ingredient}
-                rules={{ required: true }}
-                render={({ field }) => (
-                  <input
-                    className='ingredient-input'
-                    placeholder='New ingredient'
-                    {...field}
-                    value={ingredient.ingredient}
-                    onChange={e => {
-                      field.onChange(e)
-                      handleIngredientNameChange(e, index)
-                    }}
-                  />
-                )}
+              <input
+                className='ingredient-input'
+                placeholder='New ingredient'
+                value={ingredient.ingredient}
+                {...register(`ingredients[${index}].ingredient`, { required: true })}
+                onChange={e => {
+                  handleIngredientNameChange(e, index) // Handle custom logic
+                  // No need to explicitly call field.onChange(e) as register handles it
+                }}
               />
 
               <Controller
