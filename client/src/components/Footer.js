@@ -11,10 +11,12 @@ export default function Footer() {
       <nav>
         <Link to="/contact-us">Contact Us</Link>
         <Link to="/cookie-policy" className='margin-right-link'>Cookie Policy</Link>
-        <SocialIcon url="https://twitter.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
-        <SocialIcon url="https://facebook.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
-        <SocialIcon url="https://tiktok.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
-        <SocialIcon url="https://instagram.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
+        <div className='social-links'>
+          <SocialIcon url="https://twitter.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
+          <SocialIcon url="https://facebook.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
+          <SocialIcon url="https://tiktok.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
+          <SocialIcon url="https://instagram.com" bgColor='#e99254' style={{ height: 40, width: 40 }} />
+        </div>
       </nav>
     </footer>
   )

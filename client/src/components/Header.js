@@ -83,8 +83,7 @@ export default function Header() {
           <img
             src={isMenuOpen ? CloseIcon : MenuIcon}
             width={isMenuOpen ? '11px' : '16px'}
-            className={`menu-icon ${animation === 'shrinking' ? 'shrink-icon' : animation === 'growing' ? 'grow-icon' : ''
-              }`}
+            className={`menu-icon ${animation === 'shrinking' ? 'shrink-icon' : animation === 'growing' ? 'grow-icon' : ''}`}
             onClick={handleClick}
             alt='menu-icon'
           />

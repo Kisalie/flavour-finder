@@ -313,7 +313,7 @@ export default function RecipeForm() {
         <input
           value={recipeInformation.title}
           placeholder='New Recipe'
-          {...register('title', { required: true })}
+          {...register('title', { value: recipeInformation.title, required: true })}
           onChange={e => handleInputChange('title', e.target.value)}
         />
         {recipeInformation.image && (

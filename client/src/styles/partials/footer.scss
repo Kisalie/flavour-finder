@@ -1,10 +1,26 @@
 @import '../variables.scss';
 
+.footer-logo {
+  margin-left: 10px;
+  height: 30px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+nav {
+  display: block;
+  align-items: center;
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 40px 10px 20px;
   font-weight: 300;
   font-size: 0.8rem;
@@ -13,18 +29,40 @@ footer {
     color: $text-light;
     text-decoration: none;
     margin-left: 0.8rem;
+
     &:hover {
       text-decoration: underline;
     }
     
     &.margin-right-link {
       margin-right: 2rem;
+      @media (max-width: 768px) {
+        margin-right: 0;
+      }
     }
   }
+
+  // Media query for smaller screens
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+
+
 }
 
 
-.footer-logo {
-  margin-left: 10px;
-  height: 30px;
+/* Default styles for social links, applied on smaller screens */
+.social-links {
+  display: block; // This ensures the social links are on a new line
+  text-align: center; // Center the icons if desired
+  margin-top: 0.5rem;
+
+  @media (min-width: 1200px) {
+    margin-top: 0rem;
+  }
+
 }

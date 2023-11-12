@@ -6,16 +6,16 @@
 
 .grid-container {
   display: flex;
-  // flex-direction: column;
-  // justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   
   a {
-    width: 380px;
+    width: 100%; // Adjust for mobile view
     max-width: 100%;
     height: 250px;
     margin: 8px;
-    // overflow: hidden;
     .recipe {
       transition: transform 0.3s ease;
     }
@@ -58,7 +58,8 @@
   }
 
   @media (min-width: $tablet-width) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    a {
+      width: 380px; 
+    }
   }
 }
